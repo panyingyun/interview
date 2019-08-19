@@ -49,11 +49,8 @@ func find2(s []int, target int) []int {
 		r := target - v
 		k, ok := m[r]
 
-		if ok {
-			//当ℹ和k相同时，该配对不符合要求，自身和自身相加等于target的情况排除掉
-			if i == k {
-				continue
-			}
+		//当ℹ和k相同时，该配对不符合要求，自身和自身相加等于target的情况排除掉
+		if ok && i != k {
 			return []int{i, k}
 		}
 	}
