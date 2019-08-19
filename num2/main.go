@@ -12,8 +12,8 @@ import (
 )
 
 func main() {
-	s := []int{12, 7, 11, 15}
-	target := 18
+	s := []int{0, 2, 1, 3}
+	target := 4
 	ret1 := find1(s, target)
 	fmt.Println("find1 ret1 = ", ret1)
 
@@ -48,7 +48,12 @@ func find2(s []int, target int) []int {
 	for i, v := range s {
 		r := target - v
 		k, ok := m[r]
+
 		if ok {
+			//当ℹ和k相同时，该配对不符合要求，自身和自身相加等于target的情况排除掉
+			if i == k {
+				continue
+			}
 			return []int{i, k}
 		}
 	}

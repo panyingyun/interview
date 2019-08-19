@@ -16,6 +16,7 @@ func threeSum(nums []int) [][]int {
 	res := [][]int{}
 
 	for i := range nums {
+		//
 		if i > 0 && nums[i] == nums[i-1] {
 			continue
 		}
